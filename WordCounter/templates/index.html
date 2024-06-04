@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Лабораторная работа №3</title>
+	<link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<header>
+	<div class="menu">
+		<h1>Выборка<br>
+		слов</h1>
+		<h2>Лабораторная работа №3 (Вариант 3)</h2>
+	</div>
+</header>
+<body>
+<p>Введите текст для выборки слов</p>
+<form method="post" class="form">
+    <textarea name="txt" class="txt" placeholder='Waits your input...'></textarea><br>
+    <input type="submit" class="button">
+</form>
+{% if isempty == False %}
+	<hr>
+	<p> Самое частое слово: {{answer[0]}}</p>
+	<hr>
+	<p> Список повторяющихся слов: </p>
+<ul>
+{% for i in answer%}
+<li> {{i}} </li>
+{% endfor %}
+</ul>
+{% endif %}
+{% if extraanswer == "" and isempty == True %}
+	<p> </p>
+{% elif extraanswer == "" %}
+	<p> </p>
+	<hr>
+	<p> Нет неповторяющихся слов </p>
+{% else %}
+	<hr>
+	<p> Неповторяющиеся слова: </p>
+	<p>{{extraanswer}}</p>
+{% endif %}
+</body>
+<footer>
+    <div class="menu">
+		<p>Разработал студент группы ИВТ-211:</p>
+		<p>Кондратов Р.Д.</p>
+		<p>Проверил старший преподаватель:</p>
+		<p>Кабанов А.А.</p>
+		<p>
+		Контактная информация: spatialcutter@gmail.com
+		</p>
+	</div>
+</footer>
+</html>
+
